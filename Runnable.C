@@ -9,6 +9,12 @@ void main(void)
   char Attempt[7][7];//filled with null?
   char inUse[7];
   int rotateCounter = 0;
+/*int checkSide1;
+  int checkSide2;
+  int checkSide3;
+  int checkSide4;
+  int checkSide5;
+  int checkSide6;*/
 
 //first six in each are node sides from top side clockwise. The next six are there strictly for ease of "rotation"
 
@@ -43,39 +49,53 @@ void main(void)
 
   while(nodePos != 8)
   {
-      switch(nodePos) //checks sides of current rotation
+      switch(nodePos) //assigns which sides need to be checked
       {
 
         case nodePos == 0:
+            //no checking needed
             break;
 
         case nodePos == 1:
-            if()
+            //Pos0, top right MATCH pos1 bottom left
+            //while sides don't match AND Attempts[x] != 'C'
+                //rotate();
             break;
                                                                       //USE FAUX BOOL TO SAY IF SIDES MATCH OR NOT
         case nodePos == 2:
-            //code
+            //POS0 bottom right MATCH Pos2 top left
+             //Pos1 bottom MATCH Pos2 top
             break;
 
         case nodePos == 3:
+            //pos0 bottom MATCH Pos3 top
+             //pos2 bottom left match Pos3 top right
             break;
 
         case nodePos == 4:
-            //code
+            //Pos0 bottom left MATCH POs 4 top right
+              //Pos 3 top left MATCH POS4 bottom right
             break;
 
         case nodePos == 5:
-            //code
+            //Pos0 top left MAtch Pos 5 bottom right
+              //Pos4 top match Pos5 bottom
             break;
 
         case nodePos == 6:
-            //code
+            //Pos0 top match Pos6 bottom
+              //Pos5 top right match Pos6 bottom left
+             //POS1 top left MATCH Pos6 Bottom right
             break;
+
 
 
          default : /* Optional */
          statement(s);
     }//switch
+  }//loop
+
+  //PRINT OUT
 
 
 //THIS ALGORITHM STILL NEEDS SOME WAY TO KEEP TRACK OF WHICH NODE IS WHERE.
@@ -83,22 +103,24 @@ void main(void)
 
 
   //use nodePos to do switch stmt to match/check sides -->Elaborate
+
   //WHILE SIDES DO NOT MATCH
       //Rotate until at least 1 match is found.  --> Will need method
-  //IF ALL NECESSARY SIDES MATCH
-      //increment nodePos
-      //mark node as attempted in Attempted[]
-      //loop back to 61
-  //IF SOME SIDE(s) MATCH (BUT NOT ALL)
-      //mark as Attempted[]
-      //FIND NEXT AVAILABLE NODE --> Needs elaboration
-      //IF FOUND
-          //loop back to 61
-      //IF Attempts[] row is completely full      --> will need to have some kind of metric for keeping track
-          //decrement nodePos
-          //clear entire Attempts[] row
-          //update inUse                          --> Make sure this is done where it needs to be done
-          //Loop back to 61
+    //IF ALL NECESSARY SIDES MATCH
+        //increment nodePos
+        //mark node as attempted in Attempted[]
+        //mark node as inUse
+        //loop back to 61
+    //IF SOME SIDE(s) MATCH (BUT NOT ALL)
+        //mark as Attempted[]
+        //FIND NEXT AVAILABLE NODE --> Needs elaboration
+        //IF FOUND
+            //loop back to 61
+        //IF Attempts[] row is completely full      --> will need to have some kind of metric for keeping track
+            //decrement nodePos
+            //clear entire Attempts[] row
+            //update inUse                          --> Make sure this is done where it needs to be done
+            //Loop back to 61
 
 
 
