@@ -1,0 +1,53 @@
+  use nodePos to do switch stmt to match/check sides -->Elaborate
+
+WHILE SIDES DO NOT MATCH
+    Rotate until at least 1 match is found. --> To rotate, rotateCounter++. 
+                                            --> Will add rotateCounter to index to access specific parts of node array  
+IF ALL NECESSARY SIDES MATCH
+    increment nodePos
+    mark node as attempted in Attempted[]
+    mark node as inUse
+    mark node as in a position              --> SOMEHOW
+    loop back to 61
+IF SOME SIDE(s) MATCH (BUT NOT ALL)
+    mark as Attempted[]
+    FIND NEXT AVAILABLE NODE --> Needs elaboration
+        IF FOUND
+            loop back to 61
+        IF Attempts[] row is completely full (checking mech hits a 'C' )   
+            decrement nodePos
+            clear entire Attempts[] row
+            update inUse                          --> Make sure this is done where it needs to be done
+            Loop back to 61
+            
+            
+            
+            
+        TENTATIVE STORAGE PLANS
+            each node's data                in its own array
+            
+            The position of each node       nodeTracker OR inUse// NOT SURE QUITE YET
+            
+            whether the node is in use      inUse
+                needed for updating 
+                attempted lines. SO
+                you don't try and place
+                a node in two places at
+                once 
+                
+            whether node has been tried     attempted 
+                in a specific spot under 
+                certain conditions
+                
+            
+            generalize how to refer to nodes for comparisions
+            
+            Questions for Dr. Cain:
+                1.) How should I keep track of where the nodes are in the array? 
+                        I don't want to use inUse because that escalates the cost a lot
+                        I'm thinking maybe an array of pointers to the various arrays,
+                        but I'm not sure how to go about that from a language standpoint 
+                
+                2.) Do I need to be generalizing the code as much as I can, or is some less
+                        than perfectly efficient code acceptable?
+            
