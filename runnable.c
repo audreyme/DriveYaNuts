@@ -8,8 +8,8 @@ int main(void)
 /*********************Array and Variable Declarations*******************\
 */
   //Attempt[position][node]
+  printf("Line 47");
   char Attempt[7][7];
-
   char inUse[7] = {'F', 'F', 'F', 'F', 'F', 'F', 'F'};
 
   //tracks what rotation the node is at when it worked
@@ -23,7 +23,7 @@ int main(void)
   int node4[6] = {4,5,6,1,2,3};
   int node5[6] = {2,5,3,1,6,4};
   int node6[6] = {5,4,3,2,1,6};
-
+printf("Line 25");
   //identifies which node we're on
   int nodeNum = 0;
   int * nodeTracker[7] = {node0, NULL, NULL, NULL, NULL, NULL, };
@@ -31,7 +31,7 @@ int main(void)
   //keeps track of what position the nodes will need to be placed in.
   int nodePos = 0;
 
-
+ printf("Line 33");
 /*************************Begin Drive Ya' Nuts*************************/
 
   //The initial starting node for the nodePos to look at AFTER INCREMENTING is the node directly after the one placed
@@ -43,6 +43,8 @@ int main(void)
   //STILL NEEDS TO HAVE NODES "PLACED"
   while(nodePos != 7)
   {
+
+printf("Line 46");
     switch(nodePos) //assigns which sides need to be checked
     {
 
@@ -57,6 +59,7 @@ int main(void)
             //Pos0, top right MATCH pos1 bottom left
             while(nodePos == 1)  //Rotate until at least 1 match is found.
             {
+printf("Line 61");
               while(nodeTracker[0][1] != nodeTracker[1][4])
               {
                 int temp = nodeTracker[nodePos][0];
@@ -67,6 +70,7 @@ int main(void)
                 }
                 nodeTracker[nodePos][5] = temp;
               }
+printf("Line 72");
 
               if(nodeTracker[0][1] == nodeTracker[1][4])
               {
@@ -76,14 +80,19 @@ int main(void)
               }
               else //not all, but some sides match
               {
+printf("Line 82");
                 Attempt[nodePos][nodeNum % 7];
                 //FIND NEXT AVAILABLE NODE
                 nodeNum++;
                 if(Attempt[nodePos][nodeNum % 7] != 'C')
                 {
+printf("Line 88");
+
                   if(inUse[nodeNum] == 'T')
                   {
                     Attempt[nodePos][nodeNum] = 'C';
+printf("Line 93");
+
                   }
                 }
                 else//ATTEMPTS ROW FULL
@@ -96,6 +105,7 @@ int main(void)
                   inUse[nodePos] = 'd';
                   nodePos--;
                   nodeNum = (nodeNum + 1) % 7;
+printf("Line 107");
                 }
               }
             }
@@ -138,7 +148,7 @@ int main(void)
                 else//ATTEMPTS ROW FULL
                 {
                   int j;
-                  for(j = 0; j<7; j++)
+                  for(j = 0; j < 7; j++)
                   {
                     Attempt[nodePos][j] = 'f';
                   }
